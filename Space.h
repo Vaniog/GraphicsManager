@@ -7,8 +7,8 @@
 class Space {
     std::vector<Object*> objects;
     bool running = true;
-    const u_int window_height = sf::VideoMode::getDesktopMode().height;
-    const u_int window_width = sf::VideoMode::getDesktopMode().width;
+    const unsigned int window_height = sf::VideoMode::getDesktopMode().height;
+    const unsigned int window_width = sf::VideoMode::getDesktopMode().width;
 public:
     Space() = default;
     ~Space() {

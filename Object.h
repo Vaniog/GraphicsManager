@@ -6,8 +6,8 @@
 
 class Object {
 public:
-    static const u_int window_width;
-    static const u_int window_height;
+    static const unsigned int window_width;
+    static const unsigned int window_height;
 public:
     virtual void OnFrame() {
     }
