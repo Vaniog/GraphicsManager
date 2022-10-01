@@ -25,7 +25,7 @@ public:
                                 "", sf::Style::Fullscreen);
         while (window.isOpen() && running) {
             sf::Event event{};
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                 window.close();
             }
             window.pollEvent(event);
@@ -39,6 +39,9 @@ public:
     }
     void Stop() {
         running = false;
+    }
+    void Clear() {
+        objects.clear();
     }
 private:
 
@@ -59,9 +62,6 @@ private:
     void SaveParams() {
         for (Object* object : objects)
             object->SaveParams();
-    }
-    void Clear() {
-        objects.clear();
     }
 };
 
