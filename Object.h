@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 
 #include <ctime>
+#include <chrono>
 
 class Object {
 public:
@@ -16,11 +17,13 @@ public:
     virtual void OnEvent(sf::Event& event) {
     }
 
-    long time = clock();
+    std::chrono::steady_clock::time_point old = std::chrono::steady_clock::now();
     long delta_time = 0;
     void Timer() {
-        delta_time = clock() - time;
-        time = clock();
+        auto cur = std::chrono::steady_clock::now();
+        auto diff = cur - old;
+        delta_time = std::chrono::duration_cast<std::chrono::milliseconds>(diff).count();
+        old = cur;
     }
 
     virtual void SaveParams() {
