@@ -16,12 +16,13 @@ public:
             delete object;
     }
 
-    void operator<<(Object* object) {
+    Space& operator<<(Object* object) {
         objects.push_back(object);
+        return *this;
     }
     void Start() {
         sf::RenderWindow window(sf::VideoMode(window_width, window_height),
-                                "", sf::Style::Default);
+                                "", sf::Style::Fullscreen);
         while (window.isOpen() && running) {
             sf::Event event{};
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
