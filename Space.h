@@ -41,7 +41,13 @@ public:
         running = false;
     }
     void Clear() {
+        for (Object* object : objects)
+            delete object;
         objects.clear();
+    }
+    void SaveParams() {
+        for (Object* object : objects)
+            object->SaveParams();
     }
 private:
 
@@ -58,10 +64,6 @@ private:
     void OnEvent(sf::Event& event) {
         for (Object* object : objects)
             object->OnEvent(event);
-    }
-    void SaveParams() {
-        for (Object* object : objects)
-            object->SaveParams();
     }
 };
 
