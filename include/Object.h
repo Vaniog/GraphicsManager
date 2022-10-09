@@ -10,24 +10,15 @@ public:
     static const unsigned int window_width;
     static const unsigned int window_height;
 public:
-    virtual void OnFrame() {
-    }
-    virtual void OnDraw(sf::RenderWindow& window) {
-    }
-    virtual void OnEvent(sf::Event& event) {
-    }
+    virtual void OnFrame() {}
+    virtual void OnDraw(sf::RenderWindow& window) {}
+    virtual void OnEvent(sf::Event& event) {}
 
     std::chrono::steady_clock::time_point old = std::chrono::steady_clock::now();
     long delta_time = 0;
-    void Timer() {
-        auto cur = std::chrono::steady_clock::now();
-        auto diff = cur - old;
-        delta_time = std::chrono::duration_cast<std::chrono::milliseconds>(diff).count();
-        old = cur;
-    }
+    void Timer();
 
-    virtual void SaveParams() {
-    }
+    virtual void SaveParams() {}
 };
 
 #endif //GENETICALGORITHM_GRAPHICS_OBJECT_H_
