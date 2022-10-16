@@ -11,7 +11,7 @@ Space& Space::operator<<(Object* object) {
 }
 
 void Space::Start() {
-    sf::RenderWindow window(sf::VideoMode(window_width, window_height),
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(),
                             "", sf::Style::Fullscreen);
     while (window.isOpen() && running) {
         sf::Event event{};
