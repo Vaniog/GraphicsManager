@@ -22,7 +22,7 @@ private:
 
     void OnFrame();
     void OnDraw(sf::RenderWindow& window);
-    void OnEvent(sf::Event& event);
+    void OnEvent(sf::Event& event, sf::RenderWindow &window);
 };
 
 #endif //GENETICALGORITHM_GRAPHICS_SPACE_H_

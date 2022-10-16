@@ -11,15 +11,7 @@ Space& Space::operator<<(Object* object) {
 }
 
 void Space::Start() {
-    sf::VideoMode video_mode;
-    for (auto vm : sf::VideoMode::getFullscreenModes()) {
-        if (vm.isValid()) {
-            video_mode = vm;
-            break;
-        }
-    }
-    sf::RenderWindow window(video_mode,
-                            "", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "", sf::Style::Fullscreen);
     while (window.isOpen() && running) {
         sf::Event event{};
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
@@ -28,7 +20,7 @@ void Space::Start() {
         window.pollEvent(event);
         window.clear();
 
-        OnEvent(event);
+        OnEvent(event, window);
         OnFrame();
         OnDraw(window);
         window.display();
@@ -62,7 +54,7 @@ void Space::OnDraw(sf::RenderWindow& window) {
         object->OnDraw(window);
 }
 
-void Space::OnEvent(sf::Event& event) {
+void Space::OnEvent(sf::Event& event, sf::RenderWindow &window) {
     for (Object* object : objects)
-        object->OnEvent(event);
+        object->OnEvent(event, window);
 }

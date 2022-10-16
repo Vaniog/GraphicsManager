@@ -12,7 +12,7 @@ public:
 public:
     virtual void OnFrame() {}
     virtual void OnDraw(sf::RenderWindow& window) {}
-    virtual void OnEvent(sf::Event& event) {}
+    virtual void OnEvent(sf::Event& event, sf::RenderWindow &window) {}
 
     std::chrono::steady_clock::time_point old = std::chrono::steady_clock::now();
     long delta_time = 0;
